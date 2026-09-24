@@ -1,0 +1,5 @@
+- name: Start Monitoring Service
+  hosts: localhost
+  roles:
+    - deploy_jmeter
+

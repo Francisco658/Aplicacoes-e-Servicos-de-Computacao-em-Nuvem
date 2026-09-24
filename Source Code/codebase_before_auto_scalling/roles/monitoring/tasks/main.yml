@@ -1,0 +1,11 @@
+# Create different dashboards
+- name: Create dashboard with JSON
+  command: gcloud monitoring dashboards --project="{{ gcp_project}}" create --config-from-file='roles/monitoring/dashboard1.json' #{{ item }}'
+
+# Check Dashboards where created
+- name: List dashboards created
+  command: gcloud monitoring dashboards --project="{{ gcp_project}}" list
+  register: list
+
+# Debug
+#- debug: msg='{{ list }}'

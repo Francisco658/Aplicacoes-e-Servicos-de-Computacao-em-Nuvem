@@ -1,0 +1,45 @@
+---
+all:
+ vars:
+
+  # GKE Cluster Variables
+  gcp_project: ascn-tp2324-grupo1               # ID of GCP Project
+  gcp_auth_kind: serviceaccount                 # Do not change
+  gcp_cred_file: "./ascn-tp2324-grupo1-5e788aae78a9.json" # Name of service account keys (json file downloaded from GCP)
+  gcp_cluster_name: ascn-cluster                # Name of the GCP Cluster
+  gcp_cluster_zone: us-central1-a               # Zone of the GCP Cluster
+  gcp_cluster_region: us-central1               # Region of the GCP Cluster
+
+  gcp_region: us-central1
+  gcp_zone: us-central1-a
+  gcp_image_type: ubuntu_containerd
+  gcp_machine_type: e2-small           # Can be changed if necessary
+  gcp_disk_size_gb: 100                # Can be changed if necessary
+  gcp_initial_node_count: 2            # Number of nodes to create. Can be changed if necessary
+
+  # APP Variables
+  app_ip: localhost     # Needs to be updated
+  app_port: 30006          # Needs to be updated
+  laravelio_image: hugomartins22/laravelio:latest
+  laravelio_container_port: 8000
+  laravelio_cluster_port: 8000
+  laravelio_expose_port: 30006
+
+  # Pods
+  namespace: default
+  pod_replicas: 2
+
+  # Database Variables
+  database_port: 3306
+  database_service: laravelio-mysql-service
+  database_deployment_name: laravelio-mysql-deployment
+  DB_HOST: laraveldb
+  DB_USER: myuser
+  DB_PASSWORD: password
+  DB_NAME: laravel
+
+  # ElasticSearch & Kibana Vars
+  elasticsearch_port: 9200
+  kibana_port: 5601
+  elasticsearch_image: "docker.elastic.co/elasticsearch/elasticsearch:7.10.0"
+  kibana_image: "docker.elastic.co/kibana/kibana:7.10.0"

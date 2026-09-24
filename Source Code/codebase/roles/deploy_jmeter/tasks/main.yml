@@ -1,0 +1,35 @@
+---
+- name: Download JMeter Binaries (Binaries - version 5.5)
+  get_url:
+    url: "https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.5.tgz"
+    dest: "~/apache-jmeter-5.4.3.tgz"
+  
+- name: Unzip JMeter Binaries
+  unarchive:
+    src: "~/apache-jmeter-5.4.3.tgz"
+    dest: "~/"
+    remote_src: yes
+
+- name: Copy Test Files 1
+  copy:
+    src: "Acc_LoginPage_WF.jmx"
+    dest: "~/apache-jmeter-5.5"
+
+- name: Copy Test Files 2
+  copy:
+    src: "Normal_WF.jmx"
+    dest: "~/apache-jmeter-5.5"
+
+- name: Copy Test Files 3
+  copy:
+    src: "Create_Thread_WF.jmx"
+    dest: "~/apache-jmeter-5.5"
+
+#- name: Benchmarking 1
+#  command: "~/apache-jmeter-5.5/bin/jmeter -n -t ~/apache-jmeter-5.5/Acc_LoginPage_WF.jmx -l ~/apache-jmeter-5.5/teste1logs.log"
+
+#- name: Benchmarking 2
+#  command: "~/apache-jmeter-5.5/bin/jmeter -n -t ~/apache-jmeter-5.5/Normal_WF.jmx -l ~/apache-jmeter-5.5/teste2logs.log"
+
+- name: Benchmarking 3
+  command: "~/apache-jmeter-5.5/bin/jmeter -n -t ~/apache-jmeter-5.5/Create_Thread_WF.jmx -l ~/apache-jmeter-5.5/teste3logs.log"

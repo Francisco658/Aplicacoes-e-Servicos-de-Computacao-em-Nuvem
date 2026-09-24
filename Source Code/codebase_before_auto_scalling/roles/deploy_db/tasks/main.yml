@@ -1,0 +1,95 @@
+---
+
+- name: Create Storage class
+  kubernetes.core.k8s:
+    state: present
+    definition:
+      apiVersion: storage.k8s.io/v1
+      kind: StorageClass
+      metadata:
+        name: laravelio-local-storage
+      provisioner: kubernetes.io/gce-pd
+      allowVolumeExpansion: true
+      volumeBindingMode: Immediate
+
+- name: Deploy MySQL
+  kubernetes.core.k8s:
+    state: present
+    definition:
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: "{{ database_deployment_name }}"
+        namespace: "{{ namespace }}"
+        labels:
+          app: mysql
+          tier: database
+      spec:
+        selector:
+          matchLabels:
+            app: mysql
+        strategy:
+          type: Recreate
+        template:
+          metadata:
+            labels:
+              app: mysql
+              tier: database
+          spec:
+            containers:
+            - name: mysql
+              image: mysql:latest
+              env:
+              - name: MYSQL_ALLOW_EMPTY_PASSWORD
+                value: "true"
+              - name: MYSQL_DATABASE
+                value: "{{ DB_NAME }}"
+              - name: MYSQL_USER
+                value: "{{ DB_USER }}"
+              - name: MYSQL_PASSWORD
+                value: "{{ DB_PASSWORD }}"
+              ports:
+              - containerPort: "{{ database_port }}"
+              volumeMounts:
+              - name: mysql-persistent-storage
+                mountPath: /var/lib/mysql
+            volumes:
+            - name: mysql-persistent-storage
+              persistentVolumeClaim:
+                claimName: laravelio-mysql-pvc
+
+- name: Create PVC for MySQL
+  kubernetes.core.k8s:
+    state: present
+    definition: 
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        name: laravelio-mysql-pvc
+        namespace: "{{ namespace }}"
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        storageClassName: laravelio-local-storage
+        resources:
+          requests:
+            storage: 10Gi
+
+- name: Create MySQL Service
+  kubernetes.core.k8s:
+    state: present
+    definition: 
+      apiVersion: v1
+      kind: Service
+      metadata: 
+        name: laravelio-mysql-service
+        namespace: "{{ namespace }}"
+        labels: 
+          app: mysql
+      spec:
+        type: ClusterIP
+        selector: 
+          app: mysql
+        ports:
+          - targetPort: "{{ database_port }}"
+            port: "{{ database_port }}"

@@ -1,0 +1,156 @@
+---
+
+- name: Create GCP address
+  google.cloud.gcp_compute_address:
+    name: laravelio-address
+    region: "{{ gcp_region }}"
+    project: "{{ gcp_project }}"
+    auth_kind: "{{ gcp_auth_kind }}"
+    service_account_file: "{{ gcp_cred_file }}"
+    state: present
+  register: laravelio_address
+
+- name: Update APP variables
+  set_fact:
+    app_ip: "{{ laravelio_address.address }}"
+    app_port: 8000
+
+- name: Update GCP variables - Update app_ip
+  replace:
+    path: ./inventory/gcp.yml
+    regexp: '^(\s*app_ip:\s*).*'
+    replace: '  app_ip: {{ laravelio_address.address }}'
+
+- name: Update GCP variables - Update app_port
+  replace:
+    path: ./inventory/gcp.yml
+    regexp: '^(\s*app_port:\s*).*'
+    replace: '  app_port: 8000'
+
+
+- name: Deploy Laravel.io
+  kubernetes.core.k8s:
+    state: present
+    definition: 
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: laravelio-deployment
+        namespace: "{{ namespace }}"
+        labels: 
+          app: laravelio
+          tier: laravelio
+      spec:
+        selector: 
+          matchLabels:
+            app: laravelio
+        strategy: 
+          type: Recreate
+        template:
+          metadata:
+            labels:
+              app: laravelio
+              tier: laravelio
+          spec:
+            containers:
+              - name: laravelio
+                image: "{{ laravelio_image }}"
+                env:
+                - name: url
+                  value: "http://{{ app_ip }}"
+                - name: DB_HOST
+                  value: "{{ database_service }}"
+                - name: DB_DATABASE
+                  value: "{{ DB_NAME }}"
+                - name: DB_USERNAME
+                  value: "{{ DB_USER }}"
+                - name: DB_PASSWORD
+                  value: "{{ DB_PASSWORD }}"
+                - name: MIGRATE
+                  value: "true"
+                - name: seed_database
+                  value: "true"
+                ports:
+                  - containerPort: "{{ laravelio_container_port }}"
+                    port: "{{ app_port }}"
+
+- name: Create Laravel.io Service
+  kubernetes.core.k8s:
+    state: present
+    definition:   
+      apiVersion: v1
+      kind: Service
+      metadata: 
+        name: laravelio-service
+        namespace: "{{ namespace }}"
+        labels:
+          app: laravelio
+      spec:
+        type: LoadBalancer
+        loadBalancerIP: "{{ app_ip }}"
+        selector:
+          app: laravelio
+        ports:
+          - targetPort: "{{ laravelio_container_port }}" # Port that containers are listening on
+            port: "{{ laravelio_cluster_port }}" # Port that's exposed internally in the cluster
+            nodePort: "{{ laravelio_expose_port }}"
+
+
+- name: Wait for Database Pod to become Ready
+  shell: "kubectl wait --namespace={{ namespace }} --for=condition=Ready pods --selector tier=database --timeout=600s"
+
+- name: Wait for Laravel.io Pod to become Ready
+  shell: "kubectl wait --namespace={{ namespace }} --for=condition=Ready pods --selector tier=laravelio --timeout=600s"
+
+- name: Get MySQL Pod name
+  kubernetes.core.k8s_info:
+    api_version: v1
+    kind: Pod
+    namespace: "{{ namespace }}"
+    label_selectors:
+      - app = mysql
+      - tier in (database)
+  register: database_pod
+
+- name: Got MySQL pod name
+  debug: 
+    var: database_pod.resources[0].metadata.name
+
+- name: Check if Database table 'users' exists
+  shell: "kubectl exec -it {{ database_pod.resources[0].metadata.name }} -n {{ namespace }} -- mysql -u{{ DB_USER }} -p{{ DB_PASSWORD }} -e 'USE {{ DB_NAME }}; SELECT 1 FROM information_schema.tables WHERE table_schema = \"{{ DB_NAME }}\" AND table_name = \"users\" LIMIT 1;'"
+  register: table_check_result
+  until: "table_check_result.rc == 0"
+  retries: 10
+  delay: 20
+  ignore_errors: yes
+
+       
+- name: Check if Database is Populated
+  shell: "kubectl exec -it {{ database_pod.resources[0].metadata.name }} -n {{ namespace }} -- mysql -u{{ DB_USER }} -p{{ DB_PASSWORD }} -e 'USE {{ DB_NAME }}; SELECT COUNT(*) FROM users;'"
+  register: population_count
+  until: "population_count!=0"
+  retries: 10
+  delay: 20
+  ignore_errors: yes
+
+
+- name: Check if the service is up
+  wait_for:
+    host: "{{ app_ip }}"
+    port: "{{ app_port }}"
+    timeout: 600
+  register: service_up
+  ignore_errors: yes
+
+
+
+
+
+
+
+
+
+
+
+
+

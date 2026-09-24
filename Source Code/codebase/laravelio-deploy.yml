@@ -1,0 +1,25 @@
+--- # Playbook to deploy laravel.io and its components
+
+- name: Create a GKE Cluster
+  hosts: localhost
+  gather_facts: false
+  roles:
+      - gke_cluster_create
+
+- name: Deploy Laravel.io Database
+  hosts: localhost
+  roles: 
+    - deploy_db
+
+- name: Deploy Laravel.io App
+  hosts: localhost
+  roles:
+    - deploy_laravelio
+
+- name: Launch Dashboard
+  hosts: localhost
+  gather_facts: false
+  environment:
+     GOOGLE_CREDENTIALS: "{{ gcp_cred_file }}"
+  roles:
+    - monitoring

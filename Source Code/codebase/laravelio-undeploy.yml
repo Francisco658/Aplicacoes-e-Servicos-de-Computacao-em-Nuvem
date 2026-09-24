@@ -1,0 +1,8 @@
+--- # Playbook to undeploy laravel.io and its component
+
+- name: Undeploy Ghost
+  hosts: localhost
+  roles:
+    - { role: undeploy_laravelio }
+    - { role: undeploy_db, when: "delete_data is defined and delete_data == 'true'" }
+    - { role: gke_cluster_destroy }
