@@ -1,5 +1,1 @@
-# GrupoTP-1
-
-# TP23-24
-
-This repository contains the codebase and other relevant files for the project.
+## Source Code do Trabalho Prático antes do Auto Scalling
