@@ -1,0 +1,89 @@
+
+Running test 4
+[WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+[WARNING]: Collection google.cloud does not support Ansible version 2.13.13
+[WARNING]: Collection kubernetes.core does not support Ansible version 2.13.13
+
+PLAY [Create a GKE Cluster] ****************************************************
+
+PLAY [Deploy Laravel.io Database] **********************************************
+
+PLAY [Deploy Laravel.io App] ***************************************************
+
+PLAY [Tests] *******************************************************************
+
+PLAY [Tests] *******************************************************************
+
+PLAY [Undeploy Laravel.io] *****************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [undeploy_laravelio : Delete Laravel.io Deployment] ***********************
+changed: [localhost]
+
+TASK [undeploy_laravelio : Delete Laravel.io Service] **************************
+changed: [localhost]
+
+TASK [undeploy_db : Delete MySQL Deployment] ***********************************
+changed: [localhost]
+
+TASK [undeploy_db : Delete MySQL Service] **************************************
+changed: [localhost]
+
+TASK [undeploy_db : Delete Persistent Volume Claim] ****************************
+changed: [localhost]
+
+TASK [undeploy_db : Delete Storage Class] **************************************
+changed: [localhost]
+
+TASK [gke_cluster_destroy : Destroy Google Kubernetes Engine Cluster] **********
+changed: [localhost]
+
+TASK [gke_cluster_destroy : Verify that the Cluster was Deleted] ***************
+ok: [localhost]
+
+TASK [gke_cluster_destroy : Verify that the command succeeded] *****************
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY [Tests] *******************************************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=10   changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+Running test 5
+[WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+[WARNING]: Collection google.cloud does not support Ansible version 2.13.13
+[WARNING]: Collection kubernetes.core does not support Ansible version 2.13.13
+
+PLAY [Create a GKE Cluster] ****************************************************
+
+PLAY [Deploy Laravel.io Database] **********************************************
+
+PLAY [Deploy Laravel.io App] ***************************************************
+
+PLAY [Tests] *******************************************************************
+
+PLAY [Tests] *******************************************************************
+
+PLAY [Undeploy Laravel.io] *****************************************************
+
+PLAY [Tests] *******************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [test_laravelio/test_access : Refresh inventory] **************************
+
+TASK [test_laravelio/test_access : Test Access - Check access to App (HTTP GET should return -1)] ***
+ok: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

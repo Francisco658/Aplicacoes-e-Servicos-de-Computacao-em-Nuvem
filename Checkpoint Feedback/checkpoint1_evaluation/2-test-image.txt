@@ -1,0 +1,69 @@
+[2] Creating docker network ...
+9cc1669e26fa843465abf250f4276f3dce8455c9ba6e5f4d1eeb592d9bbbfde3
+
+OK! Docker network created!
+
+[2] Starting MySQL container ...
+Unable to find image 'mysql:latest' locally
+latest: Pulling from library/mysql
+8e0176adc18c: Pulling fs layer
+2d2c52718f65: Pulling fs layer
+d88d03ce139b: Pulling fs layer
+4a7d7f11aa1e: Pulling fs layer
+ce5949193e4c: Pulling fs layer
+f7f024dfb329: Pulling fs layer
+5fc3c840facc: Pulling fs layer
+509068e49488: Pulling fs layer
+cbc847bab598: Pulling fs layer
+942bef62a146: Pulling fs layer
+4a7d7f11aa1e: Waiting
+ce5949193e4c: Waiting
+5fc3c840facc: Waiting
+509068e49488: Waiting
+f7f024dfb329: Waiting
+cbc847bab598: Waiting
+942bef62a146: Waiting
+2d2c52718f65: Verifying Checksum
+2d2c52718f65: Download complete
+4a7d7f11aa1e: Verifying Checksum
+4a7d7f11aa1e: Download complete
+d88d03ce139b: Verifying Checksum
+d88d03ce139b: Download complete
+ce5949193e4c: Verifying Checksum
+ce5949193e4c: Download complete
+f7f024dfb329: Verifying Checksum
+f7f024dfb329: Download complete
+509068e49488: Download complete
+8e0176adc18c: Verifying Checksum
+8e0176adc18c: Download complete
+942bef62a146: Download complete
+8e0176adc18c: Pull complete
+2d2c52718f65: Pull complete
+d88d03ce139b: Pull complete
+4a7d7f11aa1e: Pull complete
+ce5949193e4c: Pull complete
+f7f024dfb329: Pull complete
+cbc847bab598: Verifying Checksum
+cbc847bab598: Download complete
+5fc3c840facc: Verifying Checksum
+5fc3c840facc: Download complete
+5fc3c840facc: Pull complete
+509068e49488: Pull complete
+cbc847bab598: Pull complete
+942bef62a146: Pull complete
+Digest: sha256:1773f3c7aa9522f0014d0ad2bbdaf597ea3b1643c64c8ccc2123c64afd8b82b1
+Status: Downloaded newer image for mysql:latest
+3d4d15b011291c5d750221ff9bf37affef967ce63d4b923e989b887116334006
+
+OK! Docker container for MySQL is running!
+
+[2] Waiting 90 seconds for MySQL to be ready...
+
+[2] Starting laravel.io container...
+1e596b3ee457900c4fc24b4ff2c8da4e4fc15cb55b8632c708ca7faef5f67181
+
+	- OK! Docker container for laravel.io is running!
+
+[2] Checking access to laravel.io...
+
+	- OK! Successfully accessed laravel.io main page! (2 attempt)

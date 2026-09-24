@@ -1,0 +1,61 @@
+
+[0] Repository commit: f17969bdde89227707938639794388db4688fa69
+
+->[0] Checking directory structure
+
+->[0] OK! Directory structure is correct!
+
+Running test 1
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [Create a GKE Cluster] ***********************************************************************************************************
+
+TASK [gke_cluster_create : Create Google Kubernetes Engine Cluster] *******************************************************************
+ok: [localhost]
+
+TASK [gke_cluster_create : Verify that the Cluster was Created] ***********************************************************************
+changed: [localhost]
+
+TASK [gke_cluster_create : Verify that the command succeeded] *************************************************************************
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [gke_cluster_create : Create a Node Pool] ****************************************************************************************
+ok: [localhost]
+
+TASK [gke_cluster_create : Connect to the Cluster (update kubeconfig)"] ***************************************************************
+changed: [localhost]
+
+PLAY [Deploy Laravel.io Database] *****************************************************************************************************
+
+TASK [Gathering Facts] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [deploy_db : Create Storage class] ***********************************************************************************************
+changed: [localhost]
+
+TASK [deploy_db : Deploy MySQL] *******************************************************************************************************
+changed: [localhost]
+
+TASK [deploy_db : Create PVC for MySQL] ***********************************************************************************************
+changed: [localhost]
+
+TASK [deploy_db : Create MySQL Service] ***********************************************************************************************
+changed: [localhost]
+
+TASK [deploy_db : Wait for Database Pod to become Ready] ******************************************************************************
+changed: [localhost]
+
+PLAY [Deploy Laravel.io App] **********************************************************************************************************
+
+TASK [Gathering Facts] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [deploy_laravelio : Create GCP address] ******************************************************************************************
+fatal: [localhost]: FAILED! => {"changed": false, "msg": "Unable to read service_account_file at /home/gsd/ascn/checkpoint2/repos/GrupoTP-1/tmp/ascn2223-6a7ac787cfbc.json: No such file or directory"}
+
+PLAY RECAP ****************************************************************************************************************************
+localhost                  : ok=12   changed=7    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+

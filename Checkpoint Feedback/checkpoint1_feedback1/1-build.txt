@@ -1,0 +1,4 @@
+
+[1] Building docker image...
+
+[1] FAILED! No directory 'docker' found!

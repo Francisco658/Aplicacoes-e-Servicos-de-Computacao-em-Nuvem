@@ -1,0 +1,20 @@
+[2] Creating docker network ...
+c8922a57ba5ea73a8832041df5e8f7b28850866281e72537f960e3f699ae2049
+
+OK! Docker network created!
+
+[2] Starting MySQL container ...
+5c907eca188049ff3173d954efe3a5a5ba0e0c9dc68cdfdad28d4b2a69d10084
+
+OK! Docker container for MySQL is running!
+
+[2] Waiting 90 seconds for MySQL to be ready...
+
+[2] Starting laravel.io container...
+b52c0e16ed760f7a2cc9a30097d775713d5c655530629843ba4eefdea4a9668b
+
+	- OK! Docker container for laravel.io is running!
+
+[2] Checking access to laravel.io...
+
+	- OK! Successfully accessed laravel.io main page! (2 attempt)

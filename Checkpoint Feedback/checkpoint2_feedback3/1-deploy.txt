@@ -1,0 +1,185 @@
+
+[0] Repository commit: 3cab05f4ffe1d2b2d86a8c99c0e4797f77ef7907
+
+->[0] Checking directory structure
+
+->[0] OK! Directory structure is correct!
+
+Running test 1
+[WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+[WARNING]: Collection google.cloud does not support Ansible version 2.13.13
+[WARNING]: Collection kubernetes.core does not support Ansible version 2.13.13
+
+PLAY [Create a GKE Cluster] ****************************************************
+
+TASK [gke_cluster_create : Create Google Kubernetes Engine Cluster] ************
+ok: [localhost]
+
+TASK [gke_cluster_create : Verify that the Cluster was Created] ****************
+changed: [localhost]
+
+TASK [gke_cluster_create : Verify that the command succeeded] ******************
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [gke_cluster_create : Create a Node Pool] *********************************
+ok: [localhost]
+
+TASK [gke_cluster_create : Connect to the Cluster (update kubeconfig)"] ********
+changed: [localhost]
+
+PLAY [Deploy Laravel.io Database] **********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [deploy_db : Create Storage class] ****************************************
+[WARNING]: Collection cloud.common does not support Ansible version 2.13.13
+changed: [localhost]
+
+TASK [deploy_db : Deploy MySQL] ************************************************
+changed: [localhost]
+
+TASK [deploy_db : Create PVC for MySQL] ****************************************
+changed: [localhost]
+
+TASK [deploy_db : Create MySQL Service] ****************************************
+changed: [localhost]
+
+PLAY [Deploy Laravel.io App] ***************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [deploy_laravelio : Create GCP address] ***********************************
+changed: [localhost]
+
+TASK [deploy_laravelio : Update APP variables] *********************************
+ok: [localhost]
+
+TASK [deploy_laravelio : Update GCP variables - Update app_ip] *****************
+changed: [localhost]
+
+TASK [deploy_laravelio : Update GCP variables - Update app_port] ***************
+changed: [localhost]
+
+TASK [deploy_laravelio : Deploy Laravel.io] ************************************
+changed: [localhost]
+
+TASK [deploy_laravelio : Create Laravel.io Service] ****************************
+changed: [localhost]
+
+TASK [deploy_laravelio : Wait for Database Pod to become Ready] ****************
+changed: [localhost]
+
+TASK [deploy_laravelio : Wait for Laravel.io Pod to become Ready] **************
+changed: [localhost]
+
+TASK [deploy_laravelio : Get MySQL Pod name] ***********************************
+[WARNING]: Collection cloud.common does not support Ansible version 2.13.13
+ok: [localhost]
+
+TASK [deploy_laravelio : Got MySQL pod name] ***********************************
+ok: [localhost] => {
+    "database_pod.resources[0].metadata.name": "laravelio-mysql-deployment-5ddf8cd9cd-jnwqx"
+}
+
+TASK [deploy_laravelio : Check if Database table 'users' exists] ***************
+changed: [localhost]
+
+TASK [deploy_laravelio : Check if Database is Populated] ***********************
+changed: [localhost]
+
+TASK [deploy_laravelio : Check if the service is up] ***************************
+ok: [localhost]
+
+PLAY [Tests] *******************************************************************
+
+PLAY [Tests] *******************************************************************
+
+PLAY [Undeploy Laravel.io] *****************************************************
+
+PLAY [Tests] *******************************************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=24   changed=15   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+Running test 2
+[WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+[WARNING]: Collection google.cloud does not support Ansible version 2.13.13
+[WARNING]: Collection kubernetes.core does not support Ansible version 2.13.13
+
+PLAY [Create a GKE Cluster] ****************************************************
+
+PLAY [Deploy Laravel.io Database] **********************************************
+
+PLAY [Deploy Laravel.io App] ***************************************************
+
+PLAY [Tests] *******************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [test_laravelio/test_access : Refresh inventory] **************************
+
+TASK [test_laravelio/test_access : Test Access - Check access to App (HTTP GET should return 200)] ***
+ok: [localhost]
+
+PLAY [Tests] *******************************************************************
+
+PLAY [Undeploy Laravel.io] *****************************************************
+
+PLAY [Tests] *******************************************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+Running test 3
+[WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+[WARNING]: Collection google.cloud does not support Ansible version 2.13.13
+[WARNING]: Collection kubernetes.core does not support Ansible version 2.13.13
+
+PLAY [Create a GKE Cluster] ****************************************************
+
+PLAY [Deploy Laravel.io Database] **********************************************
+
+PLAY [Deploy Laravel.io App] ***************************************************
+
+PLAY [Tests] *******************************************************************
+
+PLAY [Tests] *******************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [test_laravelio/test_login : Refresh inventory] ***************************
+
+TASK [test_laravelio/test_login : Test Login - Get Login page (HTTP GET should return 200)] ***
+changed: [localhost]
+
+TASK [test_laravelio/test_login : Test Login - Extract CSRF token] *************
+changed: [localhost]
+
+TASK [test_laravelio/test_login : set_fact] ************************************
+ok: [localhost]
+
+TASK [test_laravelio/test_login : Test Login - Login as testing user (HTTP POST should return 302)] ***
+changed: [localhost]
+
+TASK [test_laravelio/test_login : Test Login - Get User page (HTTP GET should return 200)] ***
+changed: [localhost]
+
+PLAY [Undeploy Laravel.io] *****************************************************
+
+PLAY [Tests] *******************************************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=6    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

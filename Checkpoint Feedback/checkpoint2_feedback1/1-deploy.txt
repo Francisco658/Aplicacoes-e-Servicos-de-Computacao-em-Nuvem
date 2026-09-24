@@ -1,0 +1,10 @@
+
+[0] Repository commit: f71f61c827f78a5514e27f51766d38b5adf013a8
+
+->[0] Checking directory structure
+
+->[0] OK! Directory structure is correct!
+
+Running test 1
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+ERROR! Empty playbook, nothing to do

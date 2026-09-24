@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="uCyxESBZ8AwNPSoydFYUegrj7ybA9AkqRbvMMKzh">
+
+    <title>
+        
+        Laravel.io
+        - The Laravel Community Portal
+    </title>
+
+    <meta name="description" content="The Laravel portal for problem solving, knowledge sharing and community building." />
+    <link rel="canonical" href="http://localhost" />
+
+    <link rel="preload" as="style" href="http://localhost/build/assets/app.7c11e40b.css" /><link rel="stylesheet" href="http://localhost/build/assets/app.7c11e40b.css" />
+        <meta name="google-site-verification" content="LR29frqES-MZYtn3iZ6PtobclBfThr83rlNF4huiu0s" />
+
+    <script>
+        window.Laravel = {"csrfToken":"uCyxESBZ8AwNPSoydFYUegrj7ybA9AkqRbvMMKzh"};
+    </script>
+
+    <link rel="alternate" type="application/atom+xml" href="http://localhost/forum/feed" title="Laravel.io Forum RSS Feed">
+    <link rel="alternate" type="application/atom+xml" href="http://localhost/articles/feed" title="Laravel.io Articles RSS Feed">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="theme-color" content="#ffffff">
+    <!-- Twitter sharing -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Laravel.io">
+<meta name="twitter:creator" content="@laravelio" />
+<!-- /Twitter sharing -->
+
+<!-- Facebook sharing -->
+<meta property="og:url" content="http://localhost" />
+<meta property="og:title" content="Laravel.io" />
+
+    <meta property="og:image" content="http://localhost/images/laravelio-share.png" />
+<!-- /Facebook sharing -->
+    
+    <!-- Livewire Styles -->
+<style >
+    [wire\:loading], [wire\:loading\.delay], [wire\:loading\.inline-block], [wire\:loading\.inline], [wire\:loading\.block], [wire\:loading\.flex], [wire\:loading\.table], [wire\:loading\.grid], [wire\:loading\.inline-flex] {
+        display: none;
+    }
+
+    [wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short], [wire\:loading\.delay\.long], [wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest] {
+        display:none;
+    }
+
+    [wire\:offline] {
+        display: none;
+    }
+
+    [wire\:dirty]:not(textarea):not(input):not(select) {
+        display: none;
+    }
+
+    input:-webkit-autofill, select:-webkit-autofill, textarea:-webkit-autofill {
+        animation-duration: 50000s;
+        animation-name: livewireautofill;
+    }
+
+    @keyframes livewireautofill { from {} }
+</style>
+</head>
+
+<body class="home font-sans bg-white antialiased" :class="{ 'overflow-hidden': lockScroll }" x-data="{ lockScroll: false, activeModal: false }" @keyup.escape="activeModal = false">
+
+<section class="bg-lio-500 text-white text-base py-2 px-4 flex justify-center text-center">
+    <a class="md:flex md:items-center" href="https://github.com/sponsors/laravelio" target="_blank" rel="noopener">
+        <svg class="shrink-0 w-4 h-4 inline mr-2" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+</svg> Support the ongoing development of Laravel.io  →
+    </a>
+</section>
+<nav class="">
+    <div class="container mx-auto text-gray-800 lg:block lg:py-8" x-data="navConfig()" @click.outside="nav = false">
+        <div class="block bg-white 2xl:-mx-10">
+            <div class="lg:px-4 lg:flex">
+                <div class="block lg:flex lg:items-center lg:shrink-0">
+                    <div class="flex justify-between items-center p-4 lg:p-0">
+                        <a href="http://localhost" class="mr-4">
+                            <img loading="lazy" class="h-6 w-auto lg:h-8" src="http://localhost/images/laravelio-logo.svg" width="330" height="78" alt="Laravel.io" />
+                        </a>
+
+                        <div class="flex lg:hidden">
+                            <button @click="showSearch($event)">
+                                <svg class="w-6 h-6 mr-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
+</svg>                            </button>
+
+                            <button @click="nav = !nav">
+                                <svg x-show="!nav" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5"/>
+</svg>                            </button>
+
+                            <button @click="nav = !nav" x-cloak>
+                                <svg x-show="nav" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+</svg>                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mt-2 border-b lg:block lg:mt-0 lg:border-0" x-cloak :class="{ 'block': nav, 'hidden': !nav }">
+                        <ul class="flex flex-col px-4 mb-2 gap-y-2 lg:flex-row lg:mb-0 lg:gap-6">
+                            <li class="rounded lg:mb-0 lg:hover:bg-gray-100 ">
+                                <a href="http://localhost/forum" class="inline-block w-full px-2 py-1">
+                                    Forum
+                                </a>
+                            </li>
+
+                            <li class="rounded lg:mb-0 lg:hover:bg-gray-100 ">
+                                <a href="http://localhost/articles" class="inline-block w-full px-2 py-1">
+                                    Articles
+                                </a>
+                            </li>
+
+                            <li class="rounded lg:mb-0 lg:hover:bg-gray-100">
+                                <a href="https://paste.laravel.io" class="inline-block w-full px-2 py-1">
+                                    Pastebin
+                                </a>
+                            </li>
+
+                            <li class="rounded lg:mb-0 lg:hover:bg-gray-100">
+                                <div @click.outside="chat = false" class="relative">
+                                    <div>
+                                        <button @click="chat = !chat" class="flex items-center lg:mb-0 py-1 px-2">
+                                            Chat
+                                            <svg x-show="!chat" class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+  <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clip-rule="evenodd"/>
+</svg>                                            <svg x-cloak="1" x-show="chat" class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+  <path fill-rule="evenodd" d="M7.72 12.53a.75.75 0 010-1.06l7.5-7.5a.75.75 0 111.06 1.06L9.31 12l6.97 6.97a.75.75 0 11-1.06 1.06l-7.5-7.5z" clip-rule="evenodd"/>
+</svg>                                        </button>
+                                    </div>
+                                    <div x-show="chat" x-cloak>
+                                        <ul class="ml-4 lg:absolute lg:flex lg:flex-col lg:ml-0 lg:mt-2 lg:w-36 lg:rounded-md lg:shadow-lg lg:z-50 lg:bg-white">
+                                            <li class="my-4 lg:hover:bg-gray-100 lg:my-0">
+                                                <a href="https://discord.gg/KxwQuKb" class="inline-block w-full lg:px-4 lg:py-3">
+                                                    <svg class="w-4 h-4 inline text-discord" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="currentColor"><title>Discord</title><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>                                                    Discord
+                                                </a>
+                                            </li>
+
+                                            <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
+                                                <a href="https://larachat.co" class="inline-block w-full lg:px-4 lg:py-3">
+                                                    <svg class="w-4 h-4 inline text-red-400" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="currentColor"><title>Slack</title><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>                                                    Larachat
+                                                </a>
+                                            </li>
+
+                                            <li class="hover:bg-gray-100">
+                                                <a href="https://web.libera.chat/?nick=laravelnewbie&channels=#laravel" class="inline-block w-full lg:px-4 lg:py-3">
+                                                    <svg class="w-4 h-4 inline text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+  <path fill-rule="evenodd" d="M4.804 21.644A6.707 6.707 0 006 21.75a6.721 6.721 0 003.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 01-.814 1.686.75.75 0 00.44 1.223zM8.25 10.875a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zM10.875 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875-1.125a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z" clip-rule="evenodd"/>
+</svg>                                                    IRC
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="rounded lg:mb-0 lg:hover:bg-gray-100">
+                                <div @click.outside="community = false" class="relative">
+                                    <button @click="community = !community" class="flex items-center lg:mb-0 py-1 px-2">
+                                        Community
+                                        <svg x-show="!community" class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+  <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clip-rule="evenodd"/>
+</svg>                                        <svg x-cloak="1" x-show="community" class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+  <path fill-rule="evenodd" d="M7.72 12.53a.75.75 0 010-1.06l7.5-7.5a.75.75 0 111.06 1.06L9.31 12l6.97 6.97a.75.75 0 11-1.06 1.06l-7.5-7.5z" clip-rule="evenodd"/>
+</svg>                                    </button>
+
+                                    <div x-show="community" x-cloak>
+                                        <ul class="ml-4 lg:absolute lg:flex lg:flex-col lg:ml-0 lg:mt-2 lg:w-48 lg:rounded-md lg:shadow-lg lg:z-50 lg:bg-white">
+                                            <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
+                                                <a href="https://laravel.com" class="inline-block w-full lg:px-4 lg:py-3">
+                                                    <img loading="lazy" src="http://localhost/images/laravel.png" alt="Laravel" class="w-4 h-4 inline" />
+                                                    Laravel
+                                                </a>
+                                            </li>
+
+                                            <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
+                                                <a href="https://laracasts.com" class="inline-block w-full lg:px-4 lg:py-3">
+                                                    <img loading="lazy" src="http://localhost/images/laracasts.png" alt="Laracasts" class="w-4 h-4 inline" />
+                                                    Laracasts
+                                                </a>
+                                            </li>
+
+                                            <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
+                                                <a href="https://laravel-news.com" class="inline-block w-full lg:px-4 lg:py-3">
+                                                    <img loading="lazy" src="http://localhost/images/laravel-news.png" alt="Laravel News" class="w-4 h-4 inline" />
+                                                    Laravel News
+                                                </a>
+                                            </li>
+
+                                            <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
+                                                <a href="https://www.laravelpodcast.com" class="inline-block w-full lg:px-4 lg:py-3">
+                                                    <img loading="lazy" src="http://localhost/images/podcast.png" alt="Laravel Podcast" class="w-4 h-4 inline" />
+                                                    Podcast
+                                                </a>
+                                            </li>
+
+                                            <li class="hover:bg-gray-100">
+                                                <a href="https://ecosystem.laravel.io" class="inline-block w-full lg:px-4 lg:py-3">
+                                                    <img loading="lazy" src="http://localhost/images/laravelio-icon.svg" alt="Laravel Podcast" class="w-4 h-4 inline" />
+                                                    Ecosystem
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="w-full block gap-x-4 lg:flex lg:items-center lg:justify-end">
+                    <div class="flex items-center gap-x-4">
+                        <a href="https://github.com/laravelio" class="inline-block w-full">
+                            <svg class="w-4 h-4 inline" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+</svg>                        </a>
+                        <a href="https://twitter.com/laravelio" class="inline-block w-full">
+                            <svg class="w-4 h-4 inline text-twitter" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="currentColor"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>                        </a>
+                        <button @keydown.window.prevent.ctrl.k="showSearch($event)" @keydown.window.prevent.cmd.k="showSearch($event)" @click="showSearch($event)" @keyup.window.slash="showSearch($event)" class="hover:text-lio-500">
+                            <svg class="h-5 w-5 hidden lg:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
+</svg>                        </button>
+                        <div x-data="searchConfig()" x-init="$watch('searchVisible', value => toggle())" x-show="searchVisible" x-cloak
+    class="fixed inset-0 z-50 overflow-y-auto p-4 sm:p-6 md:p-20" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-gray-700 bg-opacity-50 transition-opacity" aria-hidden="true"></div>
+
+    <div @click.outside="searchVisible = false"
+        class="mx-auto max-w-xl transform overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition-all">
+        <div class="relative">
+            <label for="search" class="sr-only">Search</label>
+
+            <svg class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd"
+                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                    clip-rule="evenodd" />
+            </svg>
+            <input x-model="searchQuery" @input.debounce.100ms="search" x-ref="search" type="text" name="search"
+                id="search"
+                class="h-12 w-full border-0 bg-transparent px-11 pr-4 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm"
+                placeholder="Search..." role="combobox" aria-expanded="false" aria-controls="options">
+            <kbd @keyup.window.escape="searchVisible = false" @click="searchVisible = false"
+                class="absolute top-3.5 right-4 text-xs rounded bg-gray-100 text-gray-500 px-2 py-1 cursor-pointer">ESC</kbd>
+        </div>
+
+        <div x-show="!searchQuery.length" x-cloak
+            class="border-t border-gray-100 py-14 px-6 text-center text-sm sm:px-14">
+            <svg class="mx-auto h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p class="mt-4 font-semibold text-gray-900">Search for threads and articles</p>
+            <p class="mt-2 text-gray-500">Quickly access threads and articles by running a global search.</p>
+        </div>
+
+        <ul x-show="searchQuery.length && (threads.total || articles.total)" x-cloak
+            class="max-h-fit scroll-pt-11 scroll-pb-2 space-y-2 overflow-y-auto pb-2" id="options" role="listbox">
+            <li>
+                <h2 class="bg-gray-100 py-2.5 px-4 font-semibold text-gray-900">
+                    Threads <span x-text="threads.formattedTotal()" class="ml-2 text-sm text-gray-500"></span>
+                </h2>
+                <ul class="mt-2 text-sm text-gray-800">
+                    <template x-for="thread in threads.threads">
+                        <li class="cursor-default select-none px-4 py-2 hover:bg-lio-100" :id="`option-${thread.id}`"
+                            role="option" tabindex="-1">
+                            <a :href="'/forum/'+thread.slug" class="flex flex-col">
+                                <span class="text-black-900 font-medium break-all"
+                                    x-html="thread._highlightResult.subject.value"></span>
+                                <span class="text-black-900 break-all" x-html="thread._snippetResult.body.value"></span>
+                            </a>
+                        </li>
+                    </template>
+                </ul>
+            </li>
+            <li>
+                <h2 class="bg-gray-100 py-2.5 px-4 font-semibold text-gray-900">
+                    Articles <span x-text="articles.formattedTotal()" class="ml-2 text-sm text-gray-500"></span>
+                </h2>
+                <ul class="mt-2 text-sm text-gray-800">
+                    <template x-for="article in articles.articles">
+                        <li class="cursor-default select-none px-4 py-2 hover:bg-lio-100" :id="`option-${article.id}`"
+                            role="option" tabindex="-1">
+                            <a :href="'/articles/'+article.slug" class="flex flex-col">
+                                <span class="text-black-900 font-medium break-all"
+                                    x-html="article._highlightResult.title.value"></span>
+                                <span class="text-black-900 break-all"
+                                    x-html="article._snippetResult.body.value"></span>
+                            </a>
+                        </li>
+                    </template>
+                </ul>
+            </li>
+        </ul>
+
+        <div x-show="searchQuery.length && !threads.total && !articles.total" x-cloak
+            class="border-t border-gray-100 py-14 px-6 text-center text-sm sm:px-14">
+            <svg class="mx-auto h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p class="mt-4 font-semibold text-gray-900">No results found</p>
+            <p class="mt-2 text-gray-500">We couldn’t find anything with that term. Please try again.</p>
+        </div>
+
+        <div class="flex flex-wrap justify-end items-center bg-gray-50 py-2.5 px-4 text-xs text-gray-700">
+            <a href="https://algolia.com">
+                <img loading="lazy" src="http://localhost/images/algolia.svg" alt="Magnifying glass icon" class="h-4" />
+            </a>
+        </div>
+
+    </div>
+</div>
+                    </div>
+
+                    <ul class="block lg:flex lg:items-center gap-x-8" x-cloak :class="{ 'block': nav, 'hidden': !nav }">
+                                                    <li class="w-full rounded text-center lg:hover:bg-gray-100">
+                                <a href="http://localhost/register" class="inline-block w-full  p-2.5">
+                                    Register
+                                </a>
+                            </li>
+
+                            <li>
+                                <div class="hidden lg:block">
+                                    <span class="inline-flex rounded shadow flex items-center">
+            <a href="http://localhost/login" class="w-full bg-white border border-gray-200 rounded py-2 px-4 inline-flex justify-center text-lg leading-6 text-gray-900 hover:bg-gray-100">
+            <span class="flex items-center">
+                                            <svg class="w-5 h-5 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+</svg>                                            Login
+                                        </span>
+        </a>
+    </span>
+                                </div>
+
+                                <a href="http://localhost/login" class="block w-full text-center bg-lio-500 text-white p-2.5 lg:hidden">
+                                    Login
+                                </a>
+                            </li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </nav>
+
+    
+    <!-- Head section -->
+    <section class="overflow-x-hidden mt-6 lg:mt-20">
+        <div class="container mx-auto lg:px-16">
+            <div class="flex flex-col items-center px-4 lg:flex-row lg:px-0">
+                <div class="w-full mb-8 lg:w-1/2 lg:mb-0 lg:mr-16">
+                    <h1 class="text-3xl font-bold text-gray-900 leading-tight mb-3 lg:text-6xl">
+                        The Laravel Community Portal
+                    </h1>
+
+                    <div class="mb-5">
+                        <p class="text-gray-800 text-lg leading-8 font-medium">
+                            The Laravel portal for problem solving, knowledge sharing and community building.
+                            Join <span class="text-lio-500 font-bold relative inline-block stroke-current">
+    0
+    <svg class="absolute bottom-0 w-full max-h-1.5" viewBox="0 0 55 5" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0.652466 4.00002C15.8925 2.66668 48.0351 0.400018 54.6853 2.00002" stroke-width="2"/>
+</svg></span> other artisans.
+                        </p>
+                    </div>
+
+                    <div>
+                                                    <span class="inline-flex rounded shadow-sm w-full mb-3 lg:w-auto lg:mr-2">
+            <a href="http://localhost/register" class="w-full bg-lio-500 border border-transparent rounded py-2 px-4 inline-flex justify-center text-lg leading-6 text-white hover:bg-lio-600">
+            Join the community
+        </a>
+    </span>
+                            <span class="inline-flex rounded shadow w-full lg:w-auto">
+            <a href="http://localhost/forum" class="w-full bg-white border border-gray-200 rounded py-2 px-4 inline-flex justify-center text-lg leading-6 text-gray-900 hover:bg-gray-100">
+            Visit the forum
+        </a>
+    </span>
+                                            </div>
+                </div>
+
+                <div class="lg:w-1/2">
+                    <div class="flex flex-col w-full" x-data="{ active: false }">
+    
+    
+    
+    
+    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Head section -->
+
+    <!-- Banner ad -->
+    <section class="container mx-auto mt-12 lg:mt-24 lg:px-16">
+        <div class="px-4 lg:px-10">
+            <div class="hidden md:block w-full">
+    <a href="https://eventy.io/?utm_source=Laravel.io&amp;utm_campaign=eventy&amp;utm_medium=advertisement" target="_blank" rel="noopener noreferrer" onclick="fathom.trackGoal('PSA8VL6S', 0);">
+        <img class="block mx-auto w-full" style="max-width:1200px" src="http://localhost/images/showcase/eventy-long.png" alt="Eventy">
+    </a>
+</div>
+
+
+<div class="block md:hidden w-full">
+    <a href="https://eventy.io/?utm_source=Laravel.io&amp;utm_campaign=eventy&amp;utm_medium=advertisement" target="_blank" rel="noopener noreferrer" onclick="fathom.trackGoal('PSA8VL6S', 0);">
+        <img class="block mx-auto w-full" style="max-width:300px" src="http://localhost/images/showcase/eventy-small.png" alt="Eventy">
+    </a>
+</div>
+
+<p class="text-center px-4 mt-4">
+    <a href="https://github.com/sponsors/laravelio" target="_blank" rel="noopener"
+       class="text-base border-b pb-1 text-lio-500 border-lio-100 hover:text-lio-600">
+        Your banner here too?
+    </a>
+</p>        </div>
+    </section>
+    <!-- /Banner ad -->
+
+    <!-- Popular articles -->
+    <section class="mt-12 container mx-auto px-4 lg:mt-24 lg:px-16">
+        <div class="flex flex-col items-center mb-8 lg:flex-row lg:mb-16">
+            <h2 class="w-full text-3xl font-bold text-gray-900 mb-2 lg:text-4xl lg:w-1/2 lg:mb-0">
+                Latest articles
+            </h2>
+            <p class="w-full text-gray-800 text-lg lg:w-1/2">
+                Have a look a the latest shared articles by our community members
+            </p>
+        </div>
+
+        
+        <div class="flex justify-center">
+            <span class="inline-flex rounded shadow-sm w-full lg:w-auto">
+            <a href="http://localhost/articles" class="w-full bg-lio-500 border border-transparent rounded py-2 px-4 inline-flex justify-center text-lg leading-6 text-white hover:bg-lio-600">
+            View all articles
+        </a>
+    </span>        </div>
+    </section>
+    <!-- /Popular articles -->
+
+    <!-- Search -->
+    <section class="mt-12 lg:mt-24">
+        <div class="bg-lio-500 text-white -skew-y-1">
+            <div class="container mx-auto skew-y-1">
+                <div class="flex flex-col items-center py-10 text-center lg:py-20">
+                    <div class="w-full px-4 lg:w-1/2 lg:px-0">
+                        <div class="mb-8">
+                            <h2 class="text-3xl lg:text-4xl font-bold mb-3">
+                                Looking for a solution?
+                            </h2>
+                            <p class="text-lg lg:text-xl opacity-80">
+                                Search the forum for the answer to your question
+                            </p>
+                        </div>
+
+                        <div class="mb-10">
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <svg class="w-4 h-4 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
+</svg>                                </div>
+
+                                <form action="http://localhost/forum" method="GET">
+                                    <input
+                                        type="search"
+                                        name="search"
+                                        placeholder="Search here for threads"
+                                        class="p-4 pl-10 text-gray-600 rounded w-full border-gray-100"
+                                    />
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="text-lg">
+                            <p>
+                                Can't find what you're looking for?<br class="sm:hidden">
+                                <a href="http://localhost/forum/create-thread" class="border-b border-white pb-1">
+                                    Create a new thread
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Search -->
+
+    <!-- Help others -->
+    <section class="mt-12 container mx-auto lg:mt-24 lg:px-16">
+        <div class="px-4 lg:px-0">
+            <div class="flex flex-col lg:flex-row items-center mb-4 lg:mb-12">
+                <h2 class="w-full text-3xl font-bold text-gray-900 lg:w-1/2 lg:text-4xl">
+                    Or you can help others
+                </h2>
+                <p class="w-full text-gray-800 text-lg lg:w-1/2">
+                    By joining our platform, you can take a look at the latest unresolved threads
+                </p>
+            </div>
+
+            <div class="flex gap-4 mb-4 -mx-4 p-4 overflow-x-auto lg:mb-10 lg:gap-8">
+                            </div>
+
+            <div class="flex justify-center">
+                <span class="inline-flex rounded shadow-sm w-full lg:w-auto">
+            <a href="http://localhost/forum" class="w-full bg-lio-500 border border-transparent rounded py-2 px-4 inline-flex justify-center text-lg leading-6 text-white hover:bg-lio-600">
+            View all threads
+        </a>
+    </span>            </div>
+        </div>
+    </section>
+    <!-- /Help others -->
+
+    <!-- Laravel.io in numbers -->
+    <section class="mt-12 container mx-auto px-4 lg:mt-40 lg:px-16">
+        <h2 class="text-4xl leading-tight font-bold text-center text-gray-900 mb-6 lg:mb-12">
+            Laravel.io in numbers
+        </h2>
+
+        <div class="flex flex-col lg:mb-10 lg:flex-row lg:gap-x-8">
+            <div class="w-full">
+                <div class="flex flex-col items-center rounded bg-lio-100 py-9 mb-4 md:mb-0">
+    <h3 class="uppercase text-lio-500 text-lg font-bold text-center mb-11">
+        Users
+        <span class="text-4xl text-gray-900 block leading-tight">0</span>
+    </h3>
+    <div 
+        class="number-block w-full h-44 bg-contain" 
+        style="background-image: url('http://localhost/images/users.png');"
+    >
+    </div>
+</div>            </div>
+
+            <div class="w-full">
+                <div class="flex flex-col items-center rounded bg-lio-100 py-9 mb-4 md:mb-0">
+    <h3 class="uppercase text-lio-500 text-lg font-bold text-center mb-11">
+        Threads
+        <span class="text-4xl text-gray-900 block leading-tight">0</span>
+    </h3>
+    <div 
+        class="number-block w-full h-44 bg-contain" 
+        style="background-image: url('http://localhost/images/threads.png');"
+    >
+    </div>
+</div>            </div>
+
+            <div class="w-full">
+                <div class="flex flex-col items-center rounded bg-lio-100 py-9 mb-4 md:mb-0">
+    <h3 class="uppercase text-lio-500 text-lg font-bold text-center mb-11">
+        Replies
+        <span class="text-4xl text-gray-900 block leading-tight">0</span>
+    </h3>
+    <div 
+        class="number-block w-full h-44 bg-contain" 
+        style="background-image: url('http://localhost/images/replies.png');"
+    >
+    </div>
+</div>            </div>
+        </div>
+    </section>
+    <!-- /Laravel.io in numbers -->
+
+<section class="mt-12 lg:mt-40">
+    <div class="container mx-auto flex justify-center mt-14">
+    <div class="w-full mx-4 text-center">
+        <p class="text-base mb-6 md:text-lg md:mb-12">
+            We'd like to thank these <span class="text-lio-500 font-bold relative inline-block stroke-current">
+    amazing companies
+    <svg class="absolute bottom-0 w-full max-h-1.5" viewBox="0 0 55 5" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0.652466 4.00002C15.8925 2.66668 48.0351 0.400018 54.6853 2.00002" stroke-width="2"/>
+</svg></span> for supporting us
+        </p>
+
+        
+
+        <div class="mt-8 flex justify-center">
+            <div class="col-span-2 flex justify-center lg:col-span-1">
+                <a class="flex items-center" href="https://eventy.io/?utm_source=Laravel.io&amp;utm_campaign=eventy&amp;utm_medium=advertisement">
+    <img loading="lazy" class="max-h-14 max-w-18" src="http://localhost/images/sponsors/eventy.svg" alt="Eventy" />
+</a>
+            </div>
+        </div>
+
+        <div class="mt-12 grid grid-cols-2 gap-y-8 lg:grid-cols-3">
+            <div class="col-span-2 flex justify-center lg:col-span-1">
+                <a class="flex items-center" href="https://usefathom.com/ref/7A8QGC">
+    <img loading="lazy" class="max-h-10 max-w-14" src="http://localhost/images/sponsors/fathom.png" alt="Fathom" />
+</a>
+            </div>
+
+            <div class="col-span-2 flex justify-center lg:col-span-1">
+                <a class="flex items-center" href="https://forge.laravel.com/">
+    <img loading="lazy" class="max-h-10 max-w-14" src="http://localhost/images/sponsors/forge.png" alt="Forge" />
+</a>
+            </div>
+
+            <div class="col-span-2 flex justify-center lg:col-span-1">
+                <a class="flex items-center" href="https://envoyer.io/">
+    <img loading="lazy" class="max-h-10 max-w-14" src="http://localhost/images/sponsors/envoyer.png" alt="Envoyer" />
+</a>
+            </div>
+
+            <div class="col-span-2 flex justify-center lg:col-span-1">
+                <a class="flex items-center" href="https://beyondco.de">
+    <img loading="lazy" class="max-h-14 max-w-18" src="http://localhost/images/sponsors/beyondcode.png" alt="Beyond Code" />
+</a>
+            </div>
+
+            <div class="col-span-2 flex justify-center lg:col-span-1">
+                <a class="flex items-center" href="https://www.skynettechnologies.com/hire-laravel-developer">
+    <img loading="lazy" class="max-h-10 max-w-14" src="http://localhost/images/sponsors/skynet-technologies.jpg" alt="Skynet Technologies" />
+</a>
+            </div>
+
+            <div class="col-span-2 flex justify-center lg:col-span-1">
+                <a class="flex items-center" href="https://www.lightflows.co.uk/laravel-development-agency/">
+    <img loading="lazy" class="max-h-10 max-w-14" src="http://localhost/images/sponsors/lightflows.png" alt="Lightflows" />
+</a>
+            </div>
+
+            <div class="col-span-2 flex justify-center lg:col-span-1">
+                <a class="flex items-center" href="https://localazy.com/laravel?utm_source=laravel.io&amp;utm_medium=sponsorships&amp;utm_campaign=brand_awareness&amp;utm_content=logo">
+    <img loading="lazy" class="max-h-10 max-w-14" src="http://localhost/images/sponsors/localazy.svg" alt="Localazy" />
+</a>
+            </div>
+
+            <div class="col-span-2 flex justify-center lg:col-span-1">
+                <a class="flex items-center" href="https://steadfastcollective.com/uk-laravel-agency">
+    <img loading="lazy" class="max-h-10 max-w-14" src="http://localhost/images/sponsors/steadfast.svg" alt="Steadfast Collective" />
+</a>
+            </div>
+
+            <div class="col-span-2 flex justify-center lg:col-span-1">
+                <a class="flex items-center" href="https://www.bairesdev.com/sponsoring-open-source-projects/">
+    <img loading="lazy" class="max-h-10 max-w-14" src="http://localhost/images/sponsors/bairesdev.png" alt="BairesDev" />
+</a>
+            </div>
+        </div>
+
+        <p class="text-center px-4 mt-8 md:mt-12">
+    <a href="https://github.com/sponsors/laravelio" target="_blank" rel="noopener"
+       class="text-base border-b pb-1 text-lio-500 border-lio-100 hover:text-lio-600">
+        Your logo here?
+    </a>
+</p>    </div>
+</div>
+</section>
+
+<div class="bg-gray-900 text-white mt-14 lg:mt-40">
+    <div class="container mx-auto pt-7 pb-8 lg:pt-20 lg:px-16">
+        <div class="mx-4 md:mx-0">
+            <div class="flex flex-col pb-8 mb-8 border-b lg:pb-16 border-gray-800 lg:flex-row">
+                <div class="w-full mb-6 lg:w-2/5 lg:pr-20 lg:mb-0">
+                    <img loading="lazy" src="http://localhost/images/laravelio-logo-white.svg" alt="Laravel.io" class="block mb-5" />
+
+                    <p class="text-gray-100 lg:leading-loose">
+                        The Laravel portal for problem solving, knowledge sharing and community building.
+                    </p>
+                </div>
+
+                <div class="lg:w-full lg:flex lg:justify-between">
+                    <div class="grow mb-6 lg:mb-0">
+                        <p class="text-lg mb-4 lg:mb-6">
+                            Laravel.io
+                        </p>
+
+                        <div class="flex flex-wrap lg:flex-col lg:flex-no-wrap">
+                            <a href="http://localhost/forum" class="w-1/2 text-gray-400 mb-4 hover:text-gray-200 lg:mb-6">
+                                Forum
+                            </a>
+
+                            <a href="http://localhost/articles" class="w-1/2 text-gray-400 mb-4 hover:text-gray-200 lg:mb-6">
+                                Articles
+                            </a>
+
+                            <a href="https://paste.laravel.io" class="w-1/2 text-gray-400 mb-4 hover:text-gray-200 lg:mb-6">
+                                Pastebin
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="grow mb-6 lg:mb-0">
+                        <p class="text-lg mb-4 lg:mb-6">
+                            Socials
+                        </p>
+
+                        <div class="flex flex-wrap lg:flex-col lg:flex-no-wrap">
+                            <a href="https://twitter.com/laravelio" class="w-1/2 text-gray-400 mb-4 hover:text-gray-200 lg:mb-6">
+                                <svg class="text-white w-4 h-4 inline mr-3.5" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="currentColor"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>                                Twitter
+                            </a>
+
+                            <a href="https://github.com/laravelio" class="w-1/2 text-gray-400 mb-4 hover:text-gray-200 lg:mb-6">
+                                <svg class="text-white w-4 h-4 inline mr-3.5" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+</svg>                                GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="grow">
+                        <p class="text-lg mb-6">
+                            The community
+                        </p>
+
+                        <div class="flex flex-col flex-nowrap">
+                            <div class="flex mb-4 lg:mb-6">
+                                <a href="https://laravel.com" class="w-1/2 text-gray-400 hover:text-gray-200">
+                                    <img loading="lazy" src="http://localhost/images/laravel.png" alt="Laravel" class="w-4 h-4 inline mr-2" />
+                                    Laravel
+                                </a>
+
+                                <a href="https://laravel-news.com" class="w-1/2 text-gray-400 hover:text-gray-200">
+                                    <img loading="lazy" src="http://localhost/images/laravel-news.png" alt="Laravel News" class="w-4 h-4 inline mr-2" />
+                                    Laravel News
+                                </a>
+                            </div>
+
+                            <div class="flex">
+                                <a href="https://laracasts.com" class="w-1/2 text-gray-400 hover:text-gray-200">
+                                    <img loading="lazy" src="http://localhost/images/laracasts.png" alt="Laracasts" class="w-4 h-4 inline mr-2" />
+                                    Laracasts
+                                </a>
+
+                                <a href="https://www.laravelpodcast.com" class="w-1/2 text-gray-400 hover:text-gray-200">
+                                    <img loading="lazy" src="http://localhost/images/podcast.png" alt="Laravel Podcast" class="w-4 h-4 inline mr-2" />
+                                    Laravel Podcast
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-gray-100 flex flex-col lg:flex-row">
+                <span class="mb-5 lg:mb-0 lg:mr-5">
+                    &copy; 2023 Laravel.io - All rights reserved.
+                </span>
+
+                <div class="flex flex-wrap lg:block">
+                    <a href="http://localhost/terms" class="w-1/2 mb-4 hover:text-gray-200 lg:w-full lg:mb-0 lg:mr-8">
+                        Terms of service
+                    </a>
+                    <a href="http://localhost/privacy" class="w-1/2 mb-4 hover:text-gray-200 lg:w-full lg:mb-0 lg:mr-8">
+                        Privacy policy
+                    </a>
+                    <a href="https://github.com/sponsors/laravelio" class="w-1/2 hover:text-gray-200 lg:w-full lg:mb-0">
+                        Advertise
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<link rel="preload" as="style" href="http://localhost/build/assets/app.96e95b0c.css" /><link rel="modulepreload" href="http://localhost/build/assets/app.a49e6d60.js" /><link rel="stylesheet" href="http://localhost/build/assets/app.96e95b0c.css" /><script type="module" src="http://localhost/build/assets/app.a49e6d60.js"></script>
+<!-- Livewire Scripts -->
+
+<script src="/livewire/livewire.js?id=90730a3b0e7144480175" data-turbo-eval="false" data-turbolinks-eval="false" ></script>
+<script data-turbo-eval="false" data-turbolinks-eval="false" >
+    if (window.livewire) {
+	    console.warn('Livewire: It looks like Livewire\'s @livewireScripts JavaScript assets have already been loaded. Make sure you aren\'t loading them twice.')
+	}
+
+    window.livewire = new Livewire();
+    window.livewire.devTools(true);
+    window.Livewire = window.livewire;
+    window.livewire_app_url = '';
+    window.livewire_token = 'uCyxESBZ8AwNPSoydFYUegrj7ybA9AkqRbvMMKzh';
+
+	/* Make sure Livewire loads first. */
+	if (window.Alpine) {
+	    /* Defer showing the warning so it doesn't get buried under downstream errors. */
+	    document.addEventListener("DOMContentLoaded", function () {
+	        setTimeout(function() {
+	            console.warn("Livewire: It looks like AlpineJS has already been loaded. Make sure Livewire\'s scripts are loaded before Alpine.\\n\\n Reference docs for more info: http://laravel-livewire.com/docs/alpine-js")
+	        })
+	    });
+	}
+
+	/* Make Alpine wait until Livewire is finished rendering to do its thing. */
+    window.deferLoadingAlpine = function (callback) {
+        window.addEventListener('livewire:load', function () {
+            callback();
+        });
+    };
+
+    let started = false;
+
+    window.addEventListener('alpine:initializing', function () {
+        if (! started) {
+            window.livewire.start();
+
+            started = true;
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        if (! started) {
+            window.livewire.start();
+
+            started = true;
+        }
+    });
+</script>
+
+</body>
+</html>
